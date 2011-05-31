@@ -13,24 +13,24 @@ Simple ruby wrapper for the [USA TODAY Census API](http://developer.usatoday.com
 
 ## USAGE:
 
-  require 'rubygems'
-  require 'usatoday-census'
-  include Usatoday::Census
+    require 'rubygems'
+    require 'usatoday-census'
+    include Usatoday::Census
 
 You'll want to set your API key as an environment variable in order to run the tests. Otherwise, you'll need to set it like so:
 
-  Base.api_key = YOUR_API_KEY
+    Base.api_key = YOUR_API_KEY
   
 or via an environment variable:
 
-  API_KEY = ENV['USAT_CENSUS_API_KEY']
-  Base.api_key = API_KEY
+    API_KEY = ENV['USAT_CENSUS_API_KEY']
+    Base.api_key = API_KEY
   
 The gem queries the USA TODAY Census API to return information about a state's population, ethnicity, housing, racial composition and other geographic details, including the USA TODAY Diversity Index. The initial version of the gem supports state-level requests, so the results will be for states only. Future support for other geographic levels (National, County and City or Town) will be added soon. Users can search for a state by its postal abbreviation or name:
 
-  Location.search('va') # find demographic information about Virginia
-  Ethnicity.search("Virginia", "Placename") # can also search by full state name using the Placename attribute.
-  Race.search("51", 'FIPS') # Or search by FIPS code, too.
+    Location.search('va') # find demographic information about Virginia
+    Ethnicity.search("Virginia", "Placename") # can also search by full state name using the Placename attribute.
+    Race.search("51", 'FIPS') # Or search by FIPS code, too.
 
 Check out the tests for further examples. Run the tests via rake test. Note: you'll need to set your API key as an environment variable before running the tests. The API has a limit of two queries per second, so the test requests are delayed by one second to ensure passage.
 
