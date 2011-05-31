@@ -11,7 +11,7 @@ module Usatoday
       API_BASE = "/open/#{API_NAME}"
       
       @@api_key = nil
-      @@debug = true
+      @@debug = false
       @@decode_html_entities = true
       
       def self.api_key=(key)

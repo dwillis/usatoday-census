@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Derek Willis"]
   s.email       = ["dwillis@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{Wrapper for USA Today Census API}}
+  s.summary     = %q{Wrapper for USA Today Census API}
   s.description = %q{Retrieves state population and demographic information.}
 
   s.rubyforge_project = "usatoday-census"
