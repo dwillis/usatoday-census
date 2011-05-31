@@ -1,16 +1,17 @@
-= usatoday-census
+# usatoday-census
+
 
 * Source[http://github.com/dwillis/usatoday-census]
 
-== DESCRIPTION:
+## DESCRIPTION:
 
 Simple ruby wrapper for the USA TODAY Census API[http://developer.usatoday.com/docs/read/Census]. You'll need an API key.
 
-== INSTALL:
+## INSTALL:
 
 * <tt>gem install usatoday-census</tt>
 
-== USAGE:
+## USAGE:
 
   require 'rubygems'
   require 'usatoday-census'
@@ -33,7 +34,7 @@ The gem queries the USA TODAY Census API to return information about a state's p
 
 Check out the tests for further examples. Run the tests via rake test. Note: you'll need to set your API key as an environment variable before running the tests. The API has a limit of two queries per second, so the test requests are delayed by one second to ensure passage.
 
-== Note on Patches/Pull Requests
+## Note on Patches/Pull Requests
 
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -43,7 +44,7 @@ Check out the tests for further examples. Run the tests via rake test. Note: you
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== LICENSE:
+## LICENSE:
 
 (The MIT License)
 
