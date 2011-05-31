@@ -1,11 +1,11 @@
 # usatoday-census
 
 
-* Source[http://github.com/dwillis/usatoday-census]
+* [Source](http://github.com/dwillis/usatoday-census)
 
 ## DESCRIPTION:
 
-Simple ruby wrapper for the USA TODAY Census API[http://developer.usatoday.com/docs/read/Census]. You'll need an API key.
+Simple ruby wrapper for the [USA TODAY Census API](http://developer.usatoday.com/docs/read/Census). You'll need an API key.
 
 ## INSTALL:
 
