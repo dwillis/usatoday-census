@@ -44,7 +44,7 @@ module Usatoday
       end
     
       def self.prepare_params(method, keyname=nil)
-        params = {"keypath" => method }
+        params = {"keypat" => method }
         params["keyname"] = keyname if keyname
         params
       end
