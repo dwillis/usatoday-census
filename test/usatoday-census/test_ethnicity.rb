@@ -21,6 +21,10 @@ class TestUsatoday::TestEthnicity < Test::Unit::TestCase
 		should "return an object of the Ethnicity type" do
 			assert_kind_of(Ethnicity, @ethnicity)
 		end
+		should "return the correct results" do
+		  @ethnicity.pct_hispanic == 0.078968
+	  end
+		
 	end
 	
   context "Ethnicity.new with FIPS" do
@@ -31,6 +35,9 @@ class TestUsatoday::TestEthnicity < Test::Unit::TestCase
 		should "return an object of the Ethnicity type" do
 			assert_kind_of(Ethnicity, @ethnicity)
 		end
+		should "return the correct results" do
+		  @ethnicity.pct_hispanic == 0.078968
+	  end
 	end
 	
 end

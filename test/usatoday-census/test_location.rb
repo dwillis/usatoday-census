@@ -20,6 +20,10 @@ class TestUsatoday::TestLocation < Test::Unit::TestCase
 		should "return an object of the Location type" do
 			assert_kind_of(Location, @location)
 		end
+		
+		should "return the correct hash of names" do
+		  @location.state_postal == "VA"
+	  end
 	end
 
   context "Location.new with FIPS" do
@@ -30,6 +34,10 @@ class TestUsatoday::TestLocation < Test::Unit::TestCase
 		should "return an object of the Location type" do
 			assert_kind_of(Location, @location)
 		end
+		
+		should "return the correct result" do
+		  @location.population == 8001024 
+	  end
 	end
 
 

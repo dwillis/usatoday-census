@@ -20,6 +20,9 @@ class TestUsatoday::TestPopulation < Test::Unit::TestCase
 		should "return an object of the Population type" do
 			assert_kind_of(Population, @population)
 		end
+		should "return the correct results" do
+		  @population.population_density == 202.6
+	  end
 	end
 
   context "Population.new with FIPS" do
@@ -30,6 +33,9 @@ class TestUsatoday::TestPopulation < Test::Unit::TestCase
 		should "return an object of the Population type" do
 			assert_kind_of(Population, @population)
 		end
+		should "return the correct results" do
+  	  @population.population_density == 202.6
+    end
 	end
 
 

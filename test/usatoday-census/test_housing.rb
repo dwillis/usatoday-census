@@ -20,6 +20,9 @@ class TestUsatoday::TestHousing < Test::Unit::TestCase
 		should "return an object of the Housing type" do
 			assert_kind_of(Housing, @housing)
 		end
+		should "return the correct results" do
+		  @housing.housing_units == 3364939
+	  end
 	end
 
   context "Housing.new with FIPS" do
@@ -30,6 +33,9 @@ class TestUsatoday::TestHousing < Test::Unit::TestCase
 		should "return an object of the Housing type" do
 			assert_kind_of(Housing, @housing)
 		end
+		should "return the correct results" do
+		  @housing.housing_units == 3364939
+	  end
 	end
 
 
