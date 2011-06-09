@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    usatoday-census (0.0.1)
+      htmlentities
+      json
+      shoulda
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    htmlentities (4.3.0)
+    json (1.5.1)
+    shoulda (2.11.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  usatoday-census!
