@@ -20,6 +20,9 @@ class TestUsatoday::TestRace < Test::Unit::TestCase
 		should "return an object of the Race type" do
 			assert_kind_of(Race, @race)
 		end
+		should "return the correct results" do 
+		  @race.pct_white == 0.685769 
+	  end
 	end
 
   context "Race.new with FIPS" do
@@ -30,6 +33,9 @@ class TestUsatoday::TestRace < Test::Unit::TestCase
 		should "return an object of the Race type" do
 			assert_kind_of(Race, @race)
 		end
+    should "return the correct results" do 
+		  @race.pct_white == 0.685769 
+	  end
 	end
 
 
