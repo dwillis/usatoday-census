@@ -46,13 +46,16 @@ module Usatoday
         :longitude => float_field(params['Long']),
         :pct_vacant => float_field(params['PctVacant'])
         )
-        location
       end
     
-      def self.search(keypat, keyname=nil)
-        params = prepare_params(keypat, keyname)
+      def self.search(keypat, keyname=nil, sumlevid=2)
+        result = []
+        params = prepare_params(keypat, keyname, sumlevid)
   			response = invoke('locations', params)
-  			init_from_api(response)
+  			response.each do |r|
+    			result << init_from_api(r)
+    		end
+    		result
       end
     end
   end

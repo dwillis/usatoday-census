@@ -33,9 +33,13 @@ module Usatoday
       end
       
       def self.search(keypat, keyname=nil)
+        result = []
         params = prepare_params(keypat, keyname)
   			response = invoke('race', params)
-  			init_from_api(response)
+  			response.each do |r|
+    			result << init_from_api(r)
+    		end
+    		result
       end   
       
     end

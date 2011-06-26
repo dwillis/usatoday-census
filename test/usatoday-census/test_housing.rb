@@ -4,7 +4,7 @@ class TestUsatoday::TestHousing < Test::Unit::TestCase
 		setup do
 		  sleep(1)
 		  response = Base.invoke('housing', {'keypat' => 'va'})
-			@housing = Housing.init_from_api(response)
+			@housing = Housing.init_from_api(response.first)
 		end
 		
 		should "return an object of the Housing type" do
@@ -15,7 +15,7 @@ class TestUsatoday::TestHousing < Test::Unit::TestCase
   context "Housing.new with placename" do
     setup do
       sleep(1)
-      @housing = Housing.search('Virginia', 'Placename')
+      @housing = Housing.search('Virginia', 'Placename').first
     end
 		should "return an object of the Housing type" do
 			assert_kind_of(Housing, @housing)
@@ -28,7 +28,7 @@ class TestUsatoday::TestHousing < Test::Unit::TestCase
   context "Housing.new with FIPS" do
     setup do
       sleep(1)
-      @housing = Housing.search(51, 'FIPS')
+      @housing = Housing.search(51, 'FIPS').first
     end
 		should "return an object of the Housing type" do
 			assert_kind_of(Housing, @housing)

@@ -4,7 +4,7 @@ class TestUsatoday::TestRace < Test::Unit::TestCase
 		setup do
 		  sleep(1)
 		  response = Base.invoke('race', {'keypat' => 'va'})
-			@race = Race.init_from_api(response)
+			@race = Race.init_from_api(response.first)
 		end
 		
 		should "return an object of the Race type" do
@@ -15,7 +15,7 @@ class TestUsatoday::TestRace < Test::Unit::TestCase
   context "Race.new with placename" do
     setup do
       sleep(1)
-      @race = Race.search('Virginia', 'Placename')
+      @race = Race.search('Virginia', 'Placename').first
     end
 		should "return an object of the Race type" do
 			assert_kind_of(Race, @race)
@@ -28,7 +28,7 @@ class TestUsatoday::TestRace < Test::Unit::TestCase
   context "Race.new with FIPS" do
     setup do
       sleep(1)
-      @race = Race.search(51, 'FIPS')
+      @race = Race.search(51, 'FIPS').first
     end
 		should "return an object of the Race type" do
 			assert_kind_of(Race, @race)

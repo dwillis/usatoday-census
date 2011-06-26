@@ -43,9 +43,10 @@ module Usatoday
         value.to_f
       end
     
-      def self.prepare_params(method, keyname=nil)
+      def self.prepare_params(method, keyname=nil, sumlevid=2)
         params = {"keypat" => method }
         params["keyname"] = keyname if keyname
+        params.merge({'sumlevid'=>sumlevid})
         params
       end
 
@@ -62,7 +63,7 @@ module Usatoday
           parsed_reply = JSON.parse reply
           
           raise BadResponseError, "Empty reply returned from API" if parsed_reply.nil?
-          parsed_reply['response'].first
+          response = parsed_reply['response']
         rescue OpenURI::HTTPError => e
           case e.message
             when /^400/

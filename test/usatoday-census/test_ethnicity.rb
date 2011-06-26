@@ -5,7 +5,7 @@ class TestUsatoday::TestEthnicity < Test::Unit::TestCase
 		setup do
 		  sleep(1)
 		  response = Base.invoke('ethnicity', {'keypat' => 'pa'})
-			@ethnicity = Ethnicity.init_from_api(response)
+			@ethnicity = Ethnicity.init_from_api(response.first)
 		end
 		
 		should "return an object of the Ethnicity type" do
@@ -13,10 +13,10 @@ class TestUsatoday::TestEthnicity < Test::Unit::TestCase
 		end
   end
   
-  context "Ethnicity.new with placename" do
+  context "Ethnicity.search with placename" do
     setup do
       sleep(1)
-      @ethnicity = Ethnicity.search('Virginia', 'Placename')
+      @ethnicity = Ethnicity.search('Virginia', 'Placename').first
     end
 		should "return an object of the Ethnicity type" do
 			assert_kind_of(Ethnicity, @ethnicity)
@@ -27,10 +27,10 @@ class TestUsatoday::TestEthnicity < Test::Unit::TestCase
 		
 	end
 	
-  context "Ethnicity.new with FIPS" do
+  context "Ethnicity.search with FIPS" do
     setup do
       sleep(1)
-      @ethnicity = Ethnicity.search(51, 'FIPS')
+      @ethnicity = Ethnicity.search(51, 'FIPS').first
     end
 		should "return an object of the Ethnicity type" do
 			assert_kind_of(Ethnicity, @ethnicity)
@@ -40,4 +40,18 @@ class TestUsatoday::TestEthnicity < Test::Unit::TestCase
 	  end
 	end
 	
+	context "Ethnicity.search with abbrev and county level" do
+	  setup do
+	    sleep(1)
+	    @ethnicities = Ethnicity.search('va', nil, 3)
+	  end
+	  should "return multiple ethnicity objects" do
+	    @ethnicities.size > 0
+	  end
+	  
+	  should "return the correct place name for the first result" do
+	    @ethnicities.first.place_name == 'Accomack'
+	  end
+	  
+	end
 end
