@@ -26,11 +26,16 @@ or via an environment variable:
     API_KEY = ENV['USAT_CENSUS_API_KEY']
     Base.api_key = API_KEY
   
-The gem queries the USA TODAY Census API to return information about a state's population, ethnicity, housing, racial composition and other geographic details, including the USA TODAY Diversity Index. The initial version of the gem supports state-level requests, so the results will be for states only. Future support for other geographic levels (National, County and City or Town) will be added soon. Users can search for a state by its postal abbreviation or name:
+The gem queries the USA TODAY Census API to return information about a state's population, ethnicity, housing, racial composition and other geographic details, including the USA TODAY Diversity Index. Requests return an array of results and the default geographic level is statewide. Users can search for a state by its postal abbreviation or name. To request results for other geographic levels (National, County and City or Town), you can pass the corresponding "sumlevid" to the search method. The following all return an array consisting of a single object containing statewide results:
 
     Location.search('va') # find demographic information about Virginia
     Ethnicity.search("Virginia", "Placename") # can also search by full state name using the Placename attribute.
     Race.search("51", 'FIPS') # Or search by FIPS code, too.
+    
+These requests return an array of result objects at the county level:
+  
+    Location.search('va', nil, 3) # find demographic information about Virgina counties using the state abbreviation.
+    Ethnicity.search("Virginia", "Placename", 3) # find ethnicity information for Virginia counties.
 
 Check out the tests for further examples. Run the tests via rake test. Note: you'll need to set your API key as an environment variable before running the tests. The API has a limit of two queries per second, so the test requests are delayed by one second to ensure passage.
 
